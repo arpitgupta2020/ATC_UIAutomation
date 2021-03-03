@@ -24,9 +24,9 @@ public class ATCBaseTest extends Base{
 	}
 	
 	@Test(dependsOnMethods = "basePageNavigation", dataProvider = "getUserCredentials")
-	public void loginApplication(String username, String password, String title) {
+	public void loginApplication(String username, String password) {
 		
-		reusableComponent.loginToApplication(username, password, title);		
+		reusableComponent.loginToApplication(username, password);		
 	}
 	
 	@Test(dependsOnMethods="loginApplication", dataProvider = "getAddressDetails")
@@ -49,11 +49,10 @@ public class ATCBaseTest extends Base{
 	@DataProvider
 	public Object[][] getUserCredentials(){
 		
-		Object[][] data= new Object[1][3];
+		Object[][] data= new Object[1][2];
 		
 		data[0][0] = "automationtest1@gmail.com";
 		data[0][1] = "Arpit@123";
-		data[0][2] = "My account - My Store";
 		
 		return data;
 		

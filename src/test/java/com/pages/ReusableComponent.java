@@ -55,18 +55,19 @@ public class ReusableComponent extends Base{
 		ls.SignInButton().click();
 	}
 
-	public void loginToApplication(String username, String password, String title) {
+	public void loginToApplication(String username, String password) {
 		
 		login.email().sendKeys(username);
 		login.password().sendKeys(password);
 		login.signIn().click();
 		
-		verifyTitle(title);
+		//Verify Title
+		verifyTitle();
 	}
 
-	private void verifyTitle(String title) {
+	private void verifyTitle() {
 		//Assert title after login
-		Assert.assertEquals(driver.getTitle(), title);
+		Assert.assertEquals(driver.getTitle(), ApplicationFields.dashBoardPageTitle);
 	}
 
 	public void navigateToAddAddresses(){
